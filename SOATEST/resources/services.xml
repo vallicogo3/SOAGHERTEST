@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) --><serviceGroup>
+    <service name="AppointmentServiceImplService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.o2wifi.olympus.webservice.AppointmentServiceImplServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.o2wifi.olympus.webservice.AppointmentServiceImplServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getAppointmentAvailability" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://webservice.olympus.o2wifi.com/">
+            <actionMapping>http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailability</actionMapping>
+            <outputActionMapping>http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailabilityResponse</outputActionMapping>
+            <faultActionMapping faultName="AppointmentException">http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailability/Fault/AppointmentException</faultActionMapping>
+            <faultActionMapping faultName="AppointmentException_Exception">http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailability/Fault/AppointmentException</faultActionMapping>
+            <faultActionMapping faultName="TimeoutException">http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailability/Fault/TimeoutException</faultActionMapping>
+            <faultActionMapping faultName="TimeoutException_Exception">http://webservice.olympus.o2wifi.com/AppointmentService/getAppointmentAvailability/Fault/TimeoutException</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

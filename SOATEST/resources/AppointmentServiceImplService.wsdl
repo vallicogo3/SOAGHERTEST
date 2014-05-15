@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AppointmentServiceImplService" targetNamespace="http://webservice.olympus.o2wifi.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.olympus.o2wifi.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservice.olympus.o2wifi.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getAppointmentAvailability" type="tns:getAppointmentAvailability"/>
+      <xs:element name="getAppointmentAvailabilityResponse" type="tns:getAppointmentAvailabilityResponse"/>
+      <xs:complexType name="getAppointmentAvailability">
+        <xs:sequence>
+          <xs:element name="appointmentAvailability" type="tns:appointmentAvailabilityRequest"/>
+          <xs:element name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="appointmentAvailabilityRequest">
+        <xs:sequence>
+          <xs:element name="pstnNumber" type="xs:string"/>
+          <xs:element name="productName" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerRequiredDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="maintenanceCategory" type="tns:maintenanceCategory"/>
+          <xs:element minOccurs="0" name="addressRef" type="xs:string"/>
+          <xs:element minOccurs="0" name="addressDistrictCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="appointmentAction" type="tns:appointmentAction"/>
+          <xs:element minOccurs="0" name="appointmentType" type="tns:appointmentType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string"/>
+          <xs:element name="system" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAppointmentAvailabilityResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appointmentAvailabilityResponse" type="tns:appointmentAvailabilityResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="appointmentAvailabilityResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serviceId" type="xs:string"/>
+          <xs:element minOccurs="0" name="pstn" type="xs:string"/>
+          <xs:element minOccurs="0" name="serviceType" type="xs:string"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="quantity" type="xs:string"/>
+          <xs:element minOccurs="0" name="maintenanceCategory" type="xs:string"/>
+          <xs:element minOccurs="0" name="severity" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element minOccurs="0" name="completionCode" type="tns:completionCode"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="appointments" nillable="true" type="tns:appointment"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="appointment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="timeSlot" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="maintenanceCategory">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MAINTENANCE_CATEGORY_14"/>
+          <xs:enumeration value="MAINTENANCE_CATEGORY_5"/>
+          <xs:enumeration value="MAINTENANCE_CATEGORY_4"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="appointmentAction">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Repair"/>
+          <xs:enumeration value="Provide"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="appointmentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Standard"/>
+          <xs:enumeration value="Flexible"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="completionCode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="A530"/>
+          <xs:enumeration value="A510"/>
+          <xs:enumeration value="A520"/>
+          <xs:enumeration value="A540"/>
+          <xs:enumeration value="A1519"/>
+          <xs:enumeration value="A550"/>
+          <xs:enumeration value="A531"/>
+          <xs:enumeration value="A522"/>
+          <xs:enumeration value="A525"/>
+          <xs:enumeration value="A532"/>
+          <xs:enumeration value="A533"/>
+          <xs:enumeration value="A307"/>
+          <xs:enumeration value="A310"/>
+          <xs:enumeration value="A527"/>
+          <xs:enumeration value="A528"/>
+          <xs:enumeration value="A335"/>
+          <xs:enumeration value="A2800"/>
+          <xs:enumeration value="A101001"/>
+          <xs:enumeration value="A101002"/>
+          <xs:enumeration value="A101003"/>
+          <xs:enumeration value="A101004"/>
+          <xs:enumeration value="A101005"/>
+          <xs:enumeration value="A101006"/>
+          <xs:enumeration value="A101007"/>
+          <xs:enumeration value="A101008"/>
+          <xs:enumeration value="A101009"/>
+          <xs:enumeration value="A101010"/>
+          <xs:enumeration value="A101011"/>
+          <xs:enumeration value="A101012"/>
+          <xs:enumeration value="A101013"/>
+          <xs:enumeration value="A101014"/>
+          <xs:enumeration value="A101015"/>
+          <xs:enumeration value="A101016"/>
+          <xs:enumeration value="A101017"/>
+          <xs:enumeration value="A101018"/>
+          <xs:enumeration value="A101019"/>
+          <xs:enumeration value="A101020"/>
+          <xs:enumeration value="A101021"/>
+          <xs:enumeration value="A101022"/>
+          <xs:enumeration value="A101023"/>
+          <xs:enumeration value="A101024"/>
+          <xs:enumeration value="A101026"/>
+          <xs:enumeration value="A101025"/>
+          <xs:enumeration value="A101030"/>
+          <xs:enumeration value="A101031"/>
+          <xs:enumeration value="A101040"/>
+          <xs:enumeration value="A101041"/>
+          <xs:enumeration value="A101042"/>
+          <xs:enumeration value="A101050"/>
+          <xs:enumeration value="A101051"/>
+          <xs:enumeration value="A101052"/>
+          <xs:enumeration value="A101053"/>
+          <xs:enumeration value="A101054"/>
+          <xs:enumeration value="A101055"/>
+          <xs:enumeration value="A101056"/>
+          <xs:enumeration value="A101057"/>
+          <xs:enumeration value="A534"/>
+          <xs:enumeration value="A5008"/>
+          <xs:enumeration value="A801"/>
+          <xs:enumeration value="A2002"/>
+          <xs:enumeration value="A2001"/>
+          <xs:enumeration value="A521"/>
+          <xs:enumeration value="A523"/>
+          <xs:enumeration value="A524"/>
+          <xs:enumeration value="A526"/>
+          <xs:enumeration value="A1005"/>
+          <xs:enumeration value="A5005"/>
+          <xs:enumeration value="A5006"/>
+          <xs:enumeration value="A5007"/>
+          <xs:enumeration value="A2011"/>
+          <xs:enumeration value="A2014"/>
+          <xs:enumeration value="A2013"/>
+          <xs:enumeration value="A2012"/>
+          <xs:enumeration value="A2015"/>
+          <xs:enumeration value="A330"/>
+          <xs:enumeration value="UNKNOWN_CODE"/>
+          <xs:enumeration value="A100101"/>
+          <xs:enumeration value="A101519"/>
+          <xs:enumeration value="A100103"/>
+          <xs:enumeration value="A100104"/>
+          <xs:enumeration value="A100105"/>
+          <xs:enumeration value="A100106"/>
+          <xs:enumeration value="A100107"/>
+          <xs:enumeration value="A100108"/>
+          <xs:enumeration value="A100109"/>
+          <xs:enumeration value="A100110"/>
+          <xs:enumeration value="A100111"/>
+          <xs:enumeration value="A100112"/>
+          <xs:enumeration value="A100113"/>
+          <xs:enumeration value="A100114"/>
+          <xs:enumeration value="A100115"/>
+          <xs:enumeration value="A100116"/>
+          <xs:enumeration value="A100117"/>
+          <xs:enumeration value="A100118"/>
+          <xs:enumeration value="A100119"/>
+          <xs:enumeration value="A100120"/>
+          <xs:enumeration value="A100121"/>
+          <xs:enumeration value="A100122"/>
+          <xs:enumeration value="A100123"/>
+          <xs:enumeration value="A100124"/>
+          <xs:enumeration value="A100125"/>
+          <xs:enumeration value="A100126"/>
+          <xs:enumeration value="A100127"/>
+          <xs:enumeration value="A100128"/>
+          <xs:enumeration value="A100129"/>
+          <xs:enumeration value="A100130"/>
+          <xs:enumeration value="A100131"/>
+          <xs:enumeration value="A100133"/>
+          <xs:enumeration value="A100134"/>
+          <xs:enumeration value="A100135"/>
+          <xs:enumeration value="A100139"/>
+          <xs:enumeration value="A100140"/>
+          <xs:enumeration value="A100142"/>
+          <xs:enumeration value="A100143"/>
+          <xs:enumeration value="A100150"/>
+          <xs:enumeration value="A151900"/>
+          <xs:enumeration value="A100151"/>
+          <xs:enumeration value="A100152"/>
+          <xs:enumeration value="A100153"/>
+          <xs:enumeration value="A100154"/>
+          <xs:enumeration value="A100155"/>
+          <xs:enumeration value="A100156"/>
+          <xs:enumeration value="A100157"/>
+          <xs:enumeration value="A100158"/>
+          <xs:enumeration value="A4000"/>
+          <xs:enumeration value="A1520"/>
+          <xs:enumeration value="A1597"/>
+          <xs:enumeration value="A261"/>
+          <xs:enumeration value="A1569"/>
+          <xs:enumeration value="A1571"/>
+          <xs:enumeration value="A1567"/>
+          <xs:enumeration value="A1570"/>
+          <xs:enumeration value="A1551"/>
+          <xs:enumeration value="A4008"/>
+          <xs:enumeration value="A4009"/>
+          <xs:enumeration value="A253"/>
+          <xs:enumeration value="A1588"/>
+          <xs:enumeration value="A5001"/>
+          <xs:enumeration value="A6000"/>
+          <xs:enumeration value="A2178"/>
+          <xs:enumeration value="A6001"/>
+          <xs:enumeration value="A6002"/>
+          <xs:enumeration value="A6004"/>
+          <xs:enumeration value="A5002"/>
+          <xs:enumeration value="A1511"/>
+          <xs:enumeration value="A1512"/>
+          <xs:enumeration value="A1545"/>
+          <xs:enumeration value="A1521"/>
+          <xs:enumeration value="A293"/>
+          <xs:enumeration value="A2004"/>
+          <xs:enumeration value="A128"/>
+          <xs:enumeration value="A109"/>
+          <xs:enumeration value="A1528"/>
+          <xs:enumeration value="A1530"/>
+          <xs:enumeration value="A2007"/>
+          <xs:enumeration value="A250"/>
+          <xs:enumeration value="A265"/>
+          <xs:enumeration value="A1568"/>
+          <xs:enumeration value="A1515"/>
+          <xs:enumeration value="A1000"/>
+          <xs:enumeration value="A101"/>
+          <xs:enumeration value="A5003"/>
+          <xs:enumeration value="A1608"/>
+          <xs:enumeration value="A129"/>
+          <xs:enumeration value="A1609"/>
+          <xs:enumeration value="A1610"/>
+          <xs:enumeration value="A130"/>
+          <xs:enumeration value="A102"/>
+          <xs:enumeration value="A103"/>
+          <xs:enumeration value="A1700"/>
+          <xs:enumeration value="A6006"/>
+          <xs:enumeration value="A6010"/>
+          <xs:enumeration value="A271"/>
+          <xs:enumeration value="A272"/>
+          <xs:enumeration value="A1703"/>
+          <xs:enumeration value="A600"/>
+          <xs:enumeration value="A602"/>
+          <xs:enumeration value="A601"/>
+          <xs:enumeration value="A1007"/>
+          <xs:enumeration value="A604"/>
+          <xs:enumeration value="A5004"/>
+          <xs:enumeration value="A606"/>
+          <xs:enumeration value="A607"/>
+          <xs:enumeration value="A608"/>
+          <xs:enumeration value="A251"/>
+          <xs:enumeration value="A6005"/>
+          <xs:enumeration value="A609"/>
+          <xs:enumeration value="A301"/>
+          <xs:enumeration value="A302"/>
+          <xs:enumeration value="A303"/>
+          <xs:enumeration value="A304"/>
+          <xs:enumeration value="A305"/>
+          <xs:enumeration value="A306"/>
+          <xs:enumeration value="A309"/>
+          <xs:enumeration value="A311"/>
+          <xs:enumeration value="A312"/>
+          <xs:enumeration value="A313"/>
+          <xs:enumeration value="A314"/>
+          <xs:enumeration value="A315"/>
+          <xs:enumeration value="A316"/>
+          <xs:enumeration value="A317"/>
+          <xs:enumeration value="A320"/>
+          <xs:enumeration value="A321"/>
+          <xs:enumeration value="A322"/>
+          <xs:enumeration value="A323"/>
+          <xs:enumeration value="A324"/>
+          <xs:enumeration value="A325"/>
+          <xs:enumeration value="A331"/>
+          <xs:enumeration value="A332"/>
+          <xs:enumeration value="A333"/>
+          <xs:enumeration value="A334"/>
+          <xs:enumeration value="A701"/>
+          <xs:enumeration value="A702"/>
+          <xs:enumeration value="A400"/>
+          <xs:enumeration value="A401"/>
+          <xs:enumeration value="A700"/>
+          <xs:enumeration value="A703"/>
+          <xs:enumeration value="A704"/>
+          <xs:enumeration value="A705"/>
+          <xs:enumeration value="A4001"/>
+          <xs:enumeration value="A6011"/>
+          <xs:enumeration value="A800"/>
+          <xs:enumeration value="A802"/>
+          <xs:enumeration value="A803"/>
+          <xs:enumeration value="A804"/>
+          <xs:enumeration value="A605"/>
+          <xs:enumeration value="A2000"/>
+          <xs:enumeration value="A712"/>
+          <xs:enumeration value="A2134"/>
+          <xs:enumeration value="A2135"/>
+          <xs:enumeration value="A2136"/>
+          <xs:enumeration value="A2115"/>
+          <xs:enumeration value="A2802"/>
+          <xs:enumeration value="A2803"/>
+          <xs:enumeration value="A2807"/>
+          <xs:enumeration value="A2808"/>
+          <xs:enumeration value="A2821"/>
+          <xs:enumeration value="A2822"/>
+          <xs:enumeration value="A2823"/>
+          <xs:enumeration value="A2820"/>
+          <xs:enumeration value="A2824"/>
+          <xs:enumeration value="A2828"/>
+          <xs:enumeration value="A2830"/>
+          <xs:enumeration value="A2834"/>
+          <xs:enumeration value="A2840"/>
+          <xs:enumeration value="A2841"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="AppointmentException" type="tns:AppointmentException"/>
+      <xs:complexType name="AppointmentException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="TimeoutException" type="tns:TimeoutException"/>
+      <xs:complexType name="TimeoutException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAppointmentAvailabilityResponse">
+    <wsdl:part name="parameters" element="tns:getAppointmentAvailabilityResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AppointmentException">
+    <wsdl:part name="AppointmentException" element="tns:AppointmentException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TimeoutException">
+    <wsdl:part name="TimeoutException" element="tns:TimeoutException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAppointmentAvailability">
+    <wsdl:part name="parameters" element="tns:getAppointmentAvailability">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AppointmentService">
+<wsdl:documentation>Webservice interface for checking and booking appointments</wsdl:documentation>
+    <wsdl:operation name="getAppointmentAvailability">
+<wsdl:documentation>Returns available appointment times for the requested site.</wsdl:documentation>
+      <wsdl:input name="getAppointmentAvailability" message="tns:getAppointmentAvailability">
+    </wsdl:input>
+      <wsdl:output name="getAppointmentAvailabilityResponse" message="tns:getAppointmentAvailabilityResponse">
+    </wsdl:output>
+      <wsdl:fault name="AppointmentException" message="tns:AppointmentException">
+    </wsdl:fault>
+      <wsdl:fault name="TimeoutException" message="tns:TimeoutException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AppointmentServiceImplServiceSoapBinding" type="tns:AppointmentService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAppointmentAvailability">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAppointmentAvailability">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAppointmentAvailabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppointmentException">
+        <soap:fault name="AppointmentException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TimeoutException">
+        <soap:fault name="TimeoutException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppointmentServiceImplService">
+    <wsdl:port name="AppointmentServiceImplPort" binding="tns:AppointmentServiceImplServiceSoapBinding">
+      <soap:address location="http://csg-PC:8088/mockAppointmentServiceImplServiceSoapBinding"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
